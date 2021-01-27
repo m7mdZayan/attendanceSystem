@@ -8,8 +8,81 @@
     <link rel="stylesheet" href="./css/home.css" />
   </head>
   <body>
+    <div class="container">
+      <h1>sign up</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- <svg viewBox="0 0 600 500">
+            <use xlink:href="/images/home.svg#enter-data"></use>
+          </svg> -->
+          <img src="./images/home.svg" alt="girl who is entering some data" />
+        </div>
+        <div class="col-md-6 p-5">
+          <form>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="fname-input"
+                aria-describedby="firstNameHelp"
+              />
+              <label for="fname-input">first name</label>
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="lname-input"
+                aria-describedby="lastNameHelp"
+              />
+              <label for="lname-input">last name</label>
+              <small id="lastNameHelp" class="form-text text-muted"
+                >error</small
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="address-input"
+                aria-describedby="addressHelp"
+              />
+              <label for="address-input">address</label>
+              <small id="addressHelp" class="form-text text-muted">error</small>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="email-input"
+                aria-describedby="emailHelp"
+              />
+              <label for="email-input">Email address</label>
+              <small id="emailHelp" class="form-text text-muted">error</small>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                id="age-input"
+                name="age"
+                aria-describedby="ageHelp"
+              />
+              <label for="age-input">age</label>
+              <small id="ageHelp" class="form-text text-muted">error</small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/JQuery-3.3.1.min.js"></script>
     <script src="./js/popper.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/homePage.js"></script>
   </body>
 </html>

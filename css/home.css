@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 20px 0 35px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+label {
+  text-transform: capitalize;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  transition: 0.5s all;
+}
+
+input.active + label {
+  top: -25px;
+}
