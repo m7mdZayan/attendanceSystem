@@ -8,6 +8,14 @@ h1 {
   position: relative;
   margin-bottom: 30px;
 }
+input.error ~ small {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 label {
   text-transform: capitalize;
@@ -19,4 +27,7 @@ label {
 
 input.active + label {
   top: -25px;
+}
+.form-text {
+  display: none;
 }

@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/home.css" />
   </head>
-  <body>
+  <body class="bg-light">
     <div class="container">
       <h1>sign up</h1>
       <div class="row">
-        <div class="col-md-6">
+        <div class="d-none d-md-block col-md-6">
           <!-- <svg viewBox="0 0 600 500">
             <use xlink:href="/images/home.svg#enter-data"></use>
           </svg> -->
@@ -27,8 +27,8 @@
                 aria-describedby="firstNameHelp"
               />
               <label for="fname-input">first name</label>
-              <small id="emailHelp" class="form-text text-muted"
-                >We'll never share your email with anyone else.</small
+              <small id="emailHelp" class="form-text text-danger"
+                >Your first name must be between 3 - 10 chars</small
               >
             </div>
             <div class="form-group">
@@ -39,8 +39,8 @@
                 aria-describedby="lastNameHelp"
               />
               <label for="lname-input">last name</label>
-              <small id="lastNameHelp" class="form-text text-muted"
-                >error</small
+              <small id="lastNameHelp" class="form-text text-danger"
+                >Your last name must be between 3 - 10 chars</small
               >
             </div>
             <div class="form-group">
@@ -51,7 +51,9 @@
                 aria-describedby="addressHelp"
               />
               <label for="address-input">address</label>
-              <small id="addressHelp" class="form-text text-muted">error</small>
+              <small id="addressHelp" class="form-text text-danger"
+                >invalid address</small
+              >
             </div>
             <div class="form-group">
               <input
@@ -61,7 +63,9 @@
                 aria-describedby="emailHelp"
               />
               <label for="email-input">Email address</label>
-              <small id="emailHelp" class="form-text text-muted">error</small>
+              <small id="emailHelp" class="form-text text-danger"
+                >invalid email</small
+              >
             </div>
 
             <div class="form-group">
@@ -73,8 +77,17 @@
                 aria-describedby="ageHelp"
               />
               <label for="age-input">age</label>
-              <small id="ageHelp" class="form-text text-muted">error</small>
+              <small id="ageHelp" class="form-text text-danger"
+                >age must be between 20 - 59</small
+              >
             </div>
+
+            <button type="submit" class="btn btn-lg btn-primary">
+              Register
+            </button>
+            <button type="submit" class="ml-3 btn btn-lg btn-light">
+              Login
+            </button>
           </form>
         </div>
       </div>
