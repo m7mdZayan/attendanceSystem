@@ -6,7 +6,11 @@ const lastNameField = document.getElementById("lname-input");
 const addressFiled = document.getElementById("address-input");
 const emailField = document.getElementById("email-input");
 const ageField = document.getElementById("age-input");
-
+const loginButton = document.querySelector(".login-btn");
+const registerFormSection = document.querySelector(".register");
+const pageHeader = document.querySelector("h1");
+const loginFormSection = document.querySelector(".login-section");
+const firstTimeButton = document.querySelector(".first-time");
 inputFieldsArray.forEach((input) => {
   input.addEventListener("focus", (e) => {
     e.target.classList.add("active");
@@ -36,11 +40,7 @@ lastNameField.addEventListener("focusout", () => {
 });
 
 addressFiled.addEventListener("focusout", (e) => {
-  if (
-    !addressFiled.value.match(
-      /(\d{1,}) [a-zA-Z0-9\s]+(\.)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}/g
-    )
-  ) {
+  if (!addressFiled.value.match(/[1-9]{1,2} [a-zA-Z0-9\s]+/)) {
     addressFiled.classList.add("error");
   } else {
     addressFiled.classList.remove("error");
@@ -65,4 +65,24 @@ ageField.addEventListener("focusout", (e) => {
   } else {
     ageField.classList.remove("error");
   }
+});
+
+loginButton.addEventListener("click", () => {
+  registerFormSection.classList.add("fadeOut");
+  pageHeader.textContent = "Login";
+  setTimeout(() => {
+    registerFormSection.classList.add("hidden");
+    loginFormSection.classList.remove("hidden");
+    loginFormSection.classList.add("fadeIn");
+  }, 500);
+});
+
+firstTimeButton.addEventListener("click", () => {
+  loginFormSection.classList.add("fadeOut");
+  pageHeader.textContent = "Sign up";
+  setTimeout(() => {
+    loginFormSection.classList.add("hidden");
+    registerFormSection.classList.remove("hidden");
+    registerFormSection.classList.add("fadeIn");
+  }, 500);
 });

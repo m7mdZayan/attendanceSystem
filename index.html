@@ -17,14 +17,15 @@
           </svg> -->
           <img src="./images/home.svg" alt="girl who is entering some data" />
         </div>
-        <div class="col-md-6 p-5">
-          <form>
+        <div class="register col-md-6 p-5">
+          <form class="d-inline">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 id="fname-input"
                 aria-describedby="firstNameHelp"
+                name="first-name"
               />
               <label for="fname-input">first name</label>
               <small id="emailHelp" class="form-text text-danger"
@@ -36,6 +37,7 @@
                 type="text"
                 class="form-control"
                 id="lname-input"
+                name="last-name"
                 aria-describedby="lastNameHelp"
               />
               <label for="lname-input">last name</label>
@@ -48,6 +50,7 @@
                 type="text"
                 class="form-control"
                 id="address-input"
+                name="address"
                 aria-describedby="addressHelp"
               />
               <label for="address-input">address</label>
@@ -60,6 +63,7 @@
                 type="email"
                 class="form-control"
                 id="email-input"
+                name="email"
                 aria-describedby="emailHelp"
               />
               <label for="email-input">Email address</label>
@@ -71,6 +75,7 @@
             <div class="form-group">
               <input
                 type="number"
+                name="age"
                 class="form-control"
                 id="age-input"
                 name="age"
@@ -85,10 +90,46 @@
             <button type="submit" class="btn btn-lg btn-primary">
               Register
             </button>
-            <button type="submit" class="ml-3 btn btn-lg btn-light">
-              Login
-            </button>
           </form>
+          <button class="ml-3 btn btn-lg btn-light login-btn">Login</button>
+        </div>
+
+        <div class="login-section hidden col-md-6 p-5">
+          <form>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="userName"
+                name="user-name"
+                aria-describedby="userName"
+              />
+              <label for="userName">user name</label>
+              <small id="email" class="form-text text-danger"
+                >invalid user-name</small
+              >
+            </div>
+
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                aria-describedby="password"
+              />
+              <label for="userName">password</label>
+              <small id="email" class="form-text text-danger"
+                >password isn't correct</small
+              >
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-primary">Login</button>
+            <button type="reset" class="btn btn-lg btn-light">reset</button>
+          </form>
+          <button class="btn btn-sm mt-4 text-muted bg-none first-time">
+            first time ?
+          </button>
         </div>
       </div>
     </div>
