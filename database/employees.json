@@ -1,0 +1,19 @@
+{
+  "employees": [
+    {
+      "firstName": "Mohamed",
+      "lastName": "Magdy",
+      "address": "74 Magdy Saleh",
+      "email": "mhmdmagdy@gmail.com",
+      "age": 25,
+      "id": 0
+    }
+  ],
+  "loginData": [
+    {
+      "id": 0,
+      "userName": "mohamed22",
+      "password": "52104785"
+    }
+  ]
+}

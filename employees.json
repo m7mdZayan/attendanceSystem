@@ -1,0 +1,11 @@
+{
+  "employees": [
+    {
+      "firstName": "Mohamed",
+      "lastName": "Magdy",
+      "address": "74 Magdy Saleh",
+      "email": "mhmdmagdy@gmail.com",
+      "age": 25
+    }
+  ]
+}

@@ -11,6 +11,14 @@ const registerFormSection = document.querySelector(".register");
 const pageHeader = document.querySelector("h1");
 const loginFormSection = document.querySelector(".login-section");
 const firstTimeButton = document.querySelector(".first-time");
+const registerButton = document.getElementById("register");
+
+let firstNameIsValid = false,
+  lastNameIsValid = false,
+  addressIsValid = false,
+  emailIsValid = false,
+  ageIsValid = false;
+
 inputFieldsArray.forEach((input) => {
   input.addEventListener("focus", (e) => {
     e.target.classList.add("active");
@@ -28,6 +36,7 @@ firstNameField.addEventListener("focusout", (e) => {
     firstNameField.classList.add("error");
   } else {
     firstNameField.classList.remove("error");
+    firstNameIsValid = true;
   }
 });
 
@@ -36,6 +45,7 @@ lastNameField.addEventListener("focusout", () => {
     lastNameField.classList.add("error");
   } else {
     lastNameField.classList.remove("error");
+    lastNameIsValid = true;
   }
 });
 
@@ -44,6 +54,7 @@ addressFiled.addEventListener("focusout", (e) => {
     addressFiled.classList.add("error");
   } else {
     addressFiled.classList.remove("error");
+    addressIsValid = true;
   }
 });
 
@@ -56,6 +67,7 @@ emailField.addEventListener("focusout", (e) => {
     emailField.classList.add("error");
   } else {
     emailField.classList.remove("error");
+    emailIsValid = true;
   }
 });
 
@@ -64,6 +76,7 @@ ageField.addEventListener("focusout", (e) => {
     ageField.classList.add("error");
   } else {
     ageField.classList.remove("error");
+    ageIsValid = true;
   }
 });
 
@@ -86,3 +99,107 @@ firstTimeButton.addEventListener("click", () => {
     registerFormSection.classList.add("fadeIn");
   }, 500);
 });
+
+registerButton.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  if (
+    firstNameIsValid &&
+    lastNameIsValid &&
+    addressFiled &&
+    emailIsValid &&
+    ageIsValid
+  ) {
+    const newEmployeeObject = {
+      firstName: firstNameField.value,
+      lastName: lastNameField.value,
+      address: addressFiled.value,
+      email: emailField.value,
+      age: +ageField.value,
+    };
+    const employeesArray = (await axios.get("http://localhost:3000/employees"))
+      .data;
+    console.log(employeesArray);
+    const employeesArrayLength = employeesArray.length;
+    let lastEmployeeID = employeesArray[employeesArrayLength - 1].id;
+    newEmployeeObject.id = ++lastEmployeeID;
+
+    console.log(newEmployeeObject);
+    axios
+      .post("http://localhost:3000/employees", newEmployeeObject)
+      .catch((e) => console.log(e));
+
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "m7mdzayan@gmail.com",
+      Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
+      To: "m7mdzayan@gmail.com",
+      From: "m7mdzayan@gmail.com",
+      Subject: "new employee data",
+      Body: `first name = ${firstNameField.value}  --
+              last name = ${lastNameField.value} --
+              address = ${addressFiled.value} --
+              email address = ${emailField.value} --
+              age = ${ageField.value}`,
+    }).then((message) => alert(message));
+
+    let loginName = firstNameField.value + Math.round(Math.random() * 100 + 1);
+    let loginPassword = "";
+
+    for (let i = 0; i < 9; i++) {
+      loginPassword += Math.ceil(Math.random() * 10);
+    }
+
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "m7mdzayan@gmail.com",
+      Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
+      To: emailField.value,
+      From: "m7mdzayan@gmail.com",
+      Subject: "Your Login data to the company website",
+      Body: `your username : ${loginName} --  your password : ${loginPassword}`,
+    }).then((message) => alert(message));
+
+    const newEmployeeLoginData = {
+      userName: loginName,
+      password: loginPassword,
+    };
+    newEmployeeLoginData.id = lastEmployeeID;
+
+    console.log(newEmployeeLoginData);
+    axios
+      .post("http://localhost:3000/loginData", newEmployeeLoginData)
+      .catch((e) => console.log(e));
+  } else {
+    alert("please make sure you entered valid data !");
+  }
+});
+
+// async function getData() {
+//   const employees = (await axios.get("http://localhost:3000/soldiers")).data;
+//   console.log(employees);
+// }
+
+// getData();
+
+//Set-ExecutionPolicy -ExecutionPolicy AllSigned
+
+// {
+//   "employees": [
+//     {
+//       "firstName": "Mohamed",
+//       "lastName": "Magdy",
+//       "address": "74 Magdy Saleh",
+//       "email": "mhmdmagdy@gmail.com",
+//       "age": 25,
+//       "id": 0
+//     }
+//   ],
+//   "loginData": [
+//     {
+//       "id": 0,
+//       "userName": "mohamed22",
+//       "password": "52104785"
+//     }
+//   ]
+// }
