@@ -11,11 +11,11 @@ const monthlyAttendanceTimesParagraph = document.querySelector(
 );
 const monthlyLateTimesParagraph = document.querySelector(".late__times");
 const monthlyAbsenceTimesParagraph = document.querySelector(".absence__times");
+const logoutButton = document.querySelector(".logout");
 
 async function getCurrentUserID() {
   let currentUserID = (await axios.get("http://localhost:3000/currentUser"))
     .data.id;
-  console.log(currentUserID);
 
   localStorage.setItem("currentUserId", currentUserID);
 }
@@ -28,8 +28,6 @@ async function getCurrentUserData() {
   currentUserData.forEach((item) => {
     if (item.id == localStorage.getItem("currentUserId")) {
       localStorage.setItem("currentUserData", JSON.stringify(item));
-      console.log(localStorage.getItem("currentUserData"));
-      console.log(JSON.parse(localStorage.getItem("currentUserData")));
       showDailyData(JSON.parse(localStorage.getItem("currentUserData")));
       showemployeeName(JSON.parse(localStorage.getItem("currentUserData")));
       showMonthlyData(JSON.parse(localStorage.getItem("currentUserData")));
@@ -54,6 +52,12 @@ monthlyReportBtn.addEventListener("click", () => {
     monthlyReportDiv.classList.remove("hidden");
     monthlyReportDiv.classList.add("fadeIn");
   }
+});
+
+logoutButton.addEventListener("click", () => {
+  localStorage.removeItem("currentUserId");
+  localStorage.removeItem("currentUserData");
+  window.location.href = "http://localhost:5500/index.html";
 });
 
 function showemployeeName(currentUserData) {
