@@ -12,6 +12,9 @@ const pageHeader = document.querySelector("h1");
 const loginFormSection = document.querySelector(".login-section");
 const firstTimeButton = document.querySelector(".first-time");
 const registerButton = document.getElementById("register");
+const userLoginButton = document.querySelector(".login-form-submit");
+const userNameField = document.getElementById("userName");
+const loginPasswordField = document.getElementById("login-password");
 
 let firstNameIsValid = false,
   lastNameIsValid = false,
@@ -119,29 +122,33 @@ registerButton.addEventListener("click", async (e) => {
     };
     const employeesArray = (await axios.get("http://localhost:3000/employees"))
       .data;
-    console.log(employeesArray);
     const employeesArrayLength = employeesArray.length;
     let lastEmployeeID = employeesArray[employeesArrayLength - 1].id;
     newEmployeeObject.id = ++lastEmployeeID;
 
-    console.log(newEmployeeObject);
     axios
       .post("http://localhost:3000/employees", newEmployeeObject)
       .catch((e) => console.log(e));
 
-    Email.send({
-      Host: "smtp.elasticemail.com",
-      Username: "m7mdzayan@gmail.com",
-      Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
-      To: "m7mdzayan@gmail.com",
-      From: "m7mdzayan@gmail.com",
-      Subject: "new employee data",
-      Body: `first name = ${firstNameField.value}  --
-              last name = ${lastNameField.value} --
-              address = ${addressFiled.value} --
-              email address = ${emailField.value} --
-              age = ${ageField.value}`,
-    }).then((message) => alert(message));
+    // Email.send({
+    //   Host: "smtp.elasticemail.com",
+    //   Username: "m7mdzayan@gmail.com",
+    //   Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
+    //   To: "mohamedzayan28@yahoo.com",
+    //   From: "m7mdzayan@gmail.com",
+    //   Subject: "new employee data",
+    //   Body: `first name = ${firstNameField.value}  --
+    //           last name = ${lastNameField.value} --
+    //           address = ${addressFiled.value} --
+    //           email address = ${emailField.value} --
+    //           age = ${ageField.value}`,
+    // }).then((message) => {
+    //   if (message == "OK") {
+    //     alert("your data was stored succesfully");
+    //   } else {
+    //     alert(message);
+    //   }
+    // });
 
     let loginName = firstNameField.value + Math.round(Math.random() * 100 + 1);
     let loginPassword = "";
@@ -150,15 +157,21 @@ registerButton.addEventListener("click", async (e) => {
       loginPassword += Math.ceil(Math.random() * 10);
     }
 
-    Email.send({
-      Host: "smtp.elasticemail.com",
-      Username: "m7mdzayan@gmail.com",
-      Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
-      To: emailField.value,
-      From: "m7mdzayan@gmail.com",
-      Subject: "Your Login data to the company website",
-      Body: `your username : ${loginName} --  your password : ${loginPassword}`,
-    }).then((message) => alert(message));
+    // Email.send({
+    //   Host: "smtp.elasticemail.com",
+    //   Username: "m7mdzayan@gmail.com",
+    //   Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
+    //   To: emailField.value,
+    //   From: "m7mdzayan@gmail.com",
+    //   Subject: "Your Login data to the company website",
+    //   Body: `your username : ${loginName} --  your password : ${loginPassword}`,
+    // }).then((message) => {
+    //   if (message == "OK") {
+    //     alert("your login data was sent succesfully to your email");
+    //   } else {
+    //     alert(message);
+    //   }
+    // });
 
     const newEmployeeLoginData = {
       userName: loginName,
@@ -166,12 +179,47 @@ registerButton.addEventListener("click", async (e) => {
     };
     newEmployeeLoginData.id = lastEmployeeID;
 
-    console.log(newEmployeeLoginData);
     axios
       .post("http://localhost:3000/loginData", newEmployeeLoginData)
       .catch((e) => console.log(e));
   } else {
     alert("please make sure you entered valid data !");
+  }
+});
+
+// Login  Form
+
+userLoginButton.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const employeeLoginData = (await axios.get("http://localhost:3000/loginData"))
+    .data;
+
+  if (loginPasswordField.value && userNameField) {
+    let userExists = false;
+    let authenticatedUser = false;
+
+    employeeLoginData.forEach((item) => {
+      if (item.userName === userNameField.value) {
+        userExists = true;
+        if (item.password === loginPasswordField.value) {
+          authenticatedUser = true;
+          axios.post("http://localhost:3000/currentUser", { id: item.id });
+          window.location.href = "http://localhost:5500/pages/userProfile.html";
+        }
+      }
+    });
+    if (!userExists) {
+      alert("sorry your name doesn't exist in our database");
+    } else if (!authenticatedUser) {
+      alert("please make sure of your password");
+    }
+
+    // employeeLoginData.forEach((item) => {
+    //   console.log(item);
+    // });
+  } else {
+    alert("please enter some data");
   }
 });
 

@@ -114,17 +114,22 @@
               <input
                 type="password"
                 class="form-control"
-                id="password"
+                id="login-password"
                 name="password"
                 aria-describedby="password"
               />
-              <label for="userName">password</label>
-              <small id="email" class="form-text text-danger"
+              <label for="login-password">password</label>
+              <small id="login-password-error" class="form-text text-danger"
                 >password isn't correct</small
               >
             </div>
 
-            <button type="submit" class="btn btn-lg btn-primary">Login</button>
+            <button
+              type="submit"
+              class="btn btn-lg btn-primary login-form-submit"
+            >
+              Login
+            </button>
             <button type="reset" class="btn btn-lg btn-light">reset</button>
           </form>
           <button class="btn btn-sm mt-4 text-muted bg-none first-time">

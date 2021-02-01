@@ -7,6 +7,22 @@
       "email": "mhmdmagdy@gmail.com",
       "age": 25,
       "id": 0
+    },
+    {
+      "firstName": "Mohamed",
+      "lastName": "Zayan",
+      "address": "74 Salah Salem",
+      "email": "m7mdzayan@gmail.com",
+      "age": 22,
+      "id": 1
+    },
+    {
+      "firstName": "Mohamed",
+      "lastName": "Salah",
+      "address": "74 Salah Salem",
+      "email": "mohamedzayan28@yahoo.com",
+      "age": 22,
+      "id": 2
     }
   ],
   "loginData": [
@@ -14,6 +30,19 @@
       "id": 0,
       "userName": "mohamed22",
       "password": "52104785"
+    },
+    {
+      "userName": "Mohamed63",
+      "password": "327774615",
+      "id": 1
+    },
+    {
+      "userName": "Mohamed72",
+      "password": "247134332",
+      "id": 2
     }
-  ]
+  ],
+  "currentUser": {
+    "id": 2
+  }
 }
