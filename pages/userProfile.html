@@ -4,21 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>profile</title>
-    <link rel="styesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/userProfile.css" />
   </head>
   <body>
-    <h1>welcomt to pro</h1>
-
-    <nav class="navbar navbar-light bg-light">
-      <form class="form-inline">
-        <button class="btn btn-outline-success" type="button">
-          Main button
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          Smaller button
-        </button>
-      </form>
+    <nav class="navbar bg-primary">
+      <button class="btn btn-dark mr-3 btn__daily">daily report</button>
+      <button class="btn btn-dark btn__monthly">monthly report</button>
     </nav>
+
+    <div class="container">
+      <div class="row p-5">
+        <div class="d-none d-md-block col-md-6 text-center">
+          <img src="../images/profile_pic.svg" />
+          <p class="lead mt-3 userName">john Doe</p>
+        </div>
+        <div class="col-md-6 p-5">
+          <div class="daily report mt-5 text-center">
+            <h2 class="text-primary">daily information</h2>
+            <p class="lead employee__name">Employee Name: John Doe</p>
+            <p class="lead attendance__time">Attendance Time: 8:45 am</p>
+          </div>
+
+          <div class="monthly report hidden mt-5 text-center">
+            <h2 class="text-primary">monthly information</h2>
+            <p class="lead attendance__times">monts</p>
+            <p class="lead late__times">sdads</p>
+            <p class="lead absence__times">sdads</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/userProfile.js"></script>
