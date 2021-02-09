@@ -15,6 +15,14 @@
       "email": "m7mdzayan@gmail.com",
       "age": 22,
       "id": 1
+    },
+    {
+      "firstName": "Mohamed",
+      "lastName": "Hany",
+      "address": "74 Salah Salem",
+      "email": "m7mdzayan@gmail.com",
+      "age": 22,
+      "id": 2
     }
   ],
   "loginData": [
@@ -27,6 +35,11 @@
       "userName": "Mohamed63",
       "password": "327774615",
       "id": 1
+    },
+    {
+      "userName": "Mohamed6",
+      "password": "327774615",
+      "id": 2
     }
   ],
   "currentUser": {
@@ -44,7 +57,15 @@
     {
       "id": 1,
       "name": "Mohamed Zayan",
-      "attendanceTime": "7:45",
+      "attendanceTime": "23 : 46",
+      "monthlyAttendanceTimes": 28,
+      "monthlylateTiems": 1,
+      "absenceTimes": 1
+    },
+    {
+      "id": 2,
+      "name": "Mohamed Hany",
+      "attendanceTime": "23 : 46",
       "monthlyAttendanceTimes": 28,
       "monthlylateTiems": 1,
       "absenceTimes": 1

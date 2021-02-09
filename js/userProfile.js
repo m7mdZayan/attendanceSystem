@@ -57,7 +57,7 @@ monthlyReportBtn.addEventListener("click", () => {
 logoutButton.addEventListener("click", () => {
   localStorage.removeItem("currentUserId");
   localStorage.removeItem("currentUserData");
-  window.location.href = "http://localhost:5500/index.html";
+  window.location.replace("../index.html");
 });
 
 function showemployeeName(currentUserData) {

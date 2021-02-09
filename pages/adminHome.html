@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/adminHome.css" />
+  </head>
+  <body>
+    <nav class="navbar bg-primary">
+      <button class="btn btn-dark mr-3 btn__admin">admin panel</button>
+      <button class="btn btn-dark btn__attendance">set attendance</button>
+    </nav>
+
+    <button class="btn btn-danger d-block ml-auto mt-4 mr-3 logout">
+      logout
+    </button>
+
+    <div class="container">
+      <div class="mt-5 admin__panel text-center">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">employee name</th>
+              <th scope="col">attendance</th>
+              <th scope="col">late</th>
+              <th scope="col">execuse</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="attendance__panel mt-5 text-center hidden">
+        <form class="attendance__card text-light bg-secondary p-5">
+          <div class="form-group">
+            <label for="employee_username">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="employee_username"
+              aria-describedby="employee_username"
+            />
+          </div>
+          <input
+            type="submit"
+            class="btn btn-primary mt-2 confirm_attendance"
+            value="Confirm Attendance"
+          />
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/adminHome.js"></script>
+  </body>
+</html>
