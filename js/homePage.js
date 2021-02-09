@@ -195,7 +195,7 @@ userLoginButton.addEventListener("click", async (e) => {
   const employeeLoginData = (await axios.get("http://localhost:3000/loginData"))
     .data;
 
-  if (loginPasswordField.value && userNameField) {
+  if (loginPasswordField.value && userNameField.value) {
     let userExists = false;
     let authenticatedUser = false;
 
