@@ -23,6 +23,14 @@
       "email": "m7mdzayan@gmail.com",
       "age": 22,
       "id": 2
+    },
+    {
+      "firstName": "Khaled",
+      "lastName": "Mansy",
+      "address": "74 Salah Salem",
+      "email": "mohamedzayan28@yahoo.com",
+      "age": 30,
+      "id": 3
     }
   ],
   "loginData": [
@@ -43,7 +51,7 @@
     }
   ],
   "currentUser": {
-    "id": 1
+    "id": 0
   },
   "userProfileData": [
     {

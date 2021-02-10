@@ -130,25 +130,25 @@ registerButton.addEventListener("click", async (e) => {
       .post("http://localhost:3000/employees", newEmployeeObject)
       .catch((e) => console.log(e));
 
-    // Email.send({
-    //   Host: "smtp.elasticemail.com",
-    //   Username: "m7mdzayan@gmail.com",
-    //   Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
-    //   To: "mohamedzayan28@yahoo.com",
-    //   From: "m7mdzayan@gmail.com",
-    //   Subject: "new employee data",
-    //   Body: `first name = ${firstNameField.value}  --
-    //           last name = ${lastNameField.value} --
-    //           address = ${addressFiled.value} --
-    //           email address = ${emailField.value} --
-    //           age = ${ageField.value}`,
-    // }).then((message) => {
-    //   if (message == "OK") {
-    //     alert("your data was stored succesfully");
-    //   } else {
-    //     alert(message);
-    //   }
-    // });
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "m7mdzayan@gmail.com",
+      Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
+      To: "mohamedzayan28@yahoo.com",
+      From: "m7mdzayan@gmail.com",
+      Subject: "new employee data",
+      Body: `first name = ${firstNameField.value}  --
+              last name = ${lastNameField.value} --
+              address = ${addressFiled.value} --
+              email address = ${emailField.value} --
+              age = ${ageField.value}`,
+    }).then((message) => {
+      if (message == "OK") {
+        alert("your data was stored succesfully");
+      } else {
+        alert(message);
+      }
+    });
 
     let loginName = firstNameField.value + Math.round(Math.random() * 100 + 1);
     let loginPassword = "";
@@ -157,21 +157,21 @@ registerButton.addEventListener("click", async (e) => {
       loginPassword += Math.ceil(Math.random() * 10);
     }
 
-    // Email.send({
-    //   Host: "smtp.elasticemail.com",
-    //   Username: "m7mdzayan@gmail.com",
-    //   Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
-    //   To: emailField.value,
-    //   From: "m7mdzayan@gmail.com",
-    //   Subject: "Your Login data to the company website",
-    //   Body: `your username : ${loginName} --  your password : ${loginPassword}`,
-    // }).then((message) => {
-    //   if (message == "OK") {
-    //     alert("your login data was sent succesfully to your email");
-    //   } else {
-    //     alert(message);
-    //   }
-    // });
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "m7mdzayan@gmail.com",
+      Password: "E7388600BDDF3EDB214E0121C8A9BD61498E",
+      To: emailField.value,
+      From: "m7mdzayan@gmail.com",
+      Subject: "Your Login data to the company website",
+      Body: `your username : ${loginName} --  your password : ${loginPassword}`,
+    }).then((message) => {
+      if (message == "OK") {
+        alert("your login data was sent succesfully to your email");
+      } else {
+        alert(message);
+      }
+    });
 
     const newEmployeeLoginData = {
       userName: loginName,
@@ -222,15 +222,6 @@ userLoginButton.addEventListener("click", async (e) => {
     alert("please enter some data");
   }
 });
-
-// async function getData() {
-//   const employees = (await axios.get("http://localhost:3000/soldiers")).data;
-//   console.log(employees);
-// }
-
-// getData();
-
-//Set-ExecutionPolicy -ExecutionPolicy AllSigned
 
 // {
 //   "employees": [
